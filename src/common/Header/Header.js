@@ -5,6 +5,10 @@ import logo from "../../assets/logo.svg";
 import Modal from "react-modal";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
+import Typography from "@material-ui/core/Typography";
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
+import Input from "@material-ui/core/Input";
 
 const customStyles = {
   content: {
@@ -15,6 +19,14 @@ const customStyles = {
     marginRight: "-50%",
     transform: "translate(-50%, -50%)"
   }
+};
+
+const TabContainer = function(props) {
+  return (
+    <Typography component="div" style={{ padding: 0, textAlign: "center" }}>
+      {props.children}
+    </Typography>
+  );
 };
 
 class Header extends Component {
@@ -61,10 +73,30 @@ class Header extends Component {
           onRequestClose={this.closeModalHandler}
           style={customStyles}
         >
-          <Tabs value={this.state.value} onChange={this.tabChangeHandler}>
+          <Tabs
+            className="tabs"
+            value={this.state.value}
+            onChange={this.tabChangeHandler}
+          >
             <Tab label="Login" />
             <Tab label="Register" />
           </Tabs>
+          <TabContainer>
+            <FormControl required>
+              <InputLabel htmlFor="username">Username</InputLabel>
+              <Input id="username" type="text" />
+            </FormControl>
+            <br />
+            <FormControl required>
+              <InputLabel htmlFor="password">Password</InputLabel>
+              <Input id="password" type="password" />
+            </FormControl>
+            <br />
+            <br />
+            <Button variant="contained" color="primary">
+              LOGIN
+            </Button>
+          </TabContainer>
         </Modal>
       </div>
     );
