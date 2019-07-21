@@ -16,7 +16,8 @@ import {
   MenuItem,
   Checkbox,
   ListItemText,
-  Input
+  Input,
+  TextField
 } from "@material-ui/core";
 import genres from "../../common/genres";
 import artists from "../../common/artists";
@@ -190,6 +191,24 @@ class Home extends Component {
                       </MenuItem>
                     ))}
                   </Select>
+                </FormControl>
+                <FormControl className={classes.formControl}>
+                  <TextField
+                    id="releaseDate"
+                    label="Release Start Date"
+                    type="Date"
+                    defaultValue=""
+                    InputLabelProps={{ shrink: true }}
+                  />
+                </FormControl>
+                <FormControl className={classes.formControl}>
+                  <TextField
+                    id="releaseEndDate"
+                    label="Release End Date"
+                    type="Date"
+                    defaultValue=""
+                    InputLabelProps={{ shrink: true }}
+                  />
                 </FormControl>
               </CardContent>
             </Card>
