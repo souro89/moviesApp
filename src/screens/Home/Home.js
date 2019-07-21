@@ -17,7 +17,8 @@ import {
   Checkbox,
   ListItemText,
   Input,
-  TextField
+  TextField,
+  Button
 } from "@material-ui/core";
 import genres from "../../common/genres";
 import artists from "../../common/artists";
@@ -209,6 +210,11 @@ class Home extends Component {
                     defaultValue=""
                     InputLabelProps={{ shrink: true }}
                   />
+                </FormControl>
+                <FormControl className={classes.formControl}>
+                  <Button variant="contained" color="primary">
+                    APPLY
+                  </Button>
                 </FormControl>
               </CardContent>
             </Card>
