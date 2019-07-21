@@ -3,6 +3,10 @@ import "./Home.css";
 import Header from "../../common/Header/Header";
 import { withStyles } from "@material-ui/core/styles";
 import MoviesData from "../../common/moviesData";
+import GridList from "@material-ui/core/GridList";
+import GridListTile from "@material-ui/core/GridListTile";
+import GridListTileBar from "@material-ui/core/GridListTileBar";
+import moviesData from "../../common/moviesData";
 
 const styles = themes => ({
   root: {
@@ -31,6 +35,18 @@ class Home extends Component {
         <div className={classes.upComingMoviesHeading}>
           <span>Upcoming Movies</span>
         </div>
+        <GridList cols={6} className={classes.gridListUpcomingMovies}>
+          {moviesData.map(movie => (
+            <GridListTile key={movie.id}>
+              <img
+                src={movie.poster_url}
+                alt={movie.title}
+                className="movie-poster"
+              />
+              <GridListTileBar title={movie.title} />
+            </GridListTile>
+          ))}
+        </GridList>
       </div>
     );
   }
