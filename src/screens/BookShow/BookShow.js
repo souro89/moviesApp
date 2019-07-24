@@ -16,6 +16,7 @@ import Input from "@material-ui/core/Input";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import Button from "@material-ui/core/Button";
+import FormHelperText from "@material-ui/core/FormHelperText";
 
 class BookShow extends Component {
   constructor() {
@@ -27,9 +28,32 @@ class BookShow extends Component {
       showTime: "",
       tickets: 0,
       unitPrice: 500,
-      availableTickets: 20
+      availableTickets: 20,
+      reqLocation: "dispNone",
+      reqLanguage: "dispNone",
+      reqShowDate: "dispNone",
+      reqShowTime: "dispNone",
+      reqTickets: "dispNone"
     };
   }
+
+  bookShowButtonHandler = () => {
+    this.state.location === ""
+      ? this.setState({ reqLocation: "dispBlock" })
+      : this.setState({ reqLocation: "dispNone" });
+    this.state.language === ""
+      ? this.setState({ reqLanguage: "dispBlock" })
+      : this.setState({ reqLanguage: "dispNone" });
+    this.state.showDate === ""
+      ? this.setState({ reqShowDate: "dispBlock" })
+      : this.setState({ reqShowDate: "dispNone" });
+    this.state.showTime === ""
+      ? this.setState({ reqShowTime: "dispBlock" })
+      : this.setState({ reqShowTime: "dispNone" });
+    this.state.tickets === 0
+      ? this.setState({ reqTickets: "dispBlock" })
+      : this.setState({ reqTickets: "dispNone" });
+  };
 
   backToDetailsHandler = () => {
     ReactDOM.render(<Home />, document.getElementById("root"));
@@ -82,6 +106,9 @@ class BookShow extends Component {
                     </MenuItem>
                   ))}
                 </Select>
+                <FormHelperText className={this.state.reqLocation}>
+                  <span className="red">Required</span>
+                </FormHelperText>
               </FormControl>
               <br />
               <br />
@@ -97,6 +124,9 @@ class BookShow extends Component {
                     </MenuItem>
                   ))}
                 </Select>
+                <FormHelperText className={this.state.reqLanguage}>
+                  <span className="red">Required</span>
+                </FormHelperText>
               </FormControl>
               <br />
               <br />
@@ -112,6 +142,9 @@ class BookShow extends Component {
                     </MenuItem>
                   ))}
                 </Select>
+                <FormHelperText className={this.state.reqShowDate}>
+                  <span className="red">Required</span>
+                </FormHelperText>
               </FormControl>
               <br />
               <br />
@@ -127,6 +160,9 @@ class BookShow extends Component {
                     </MenuItem>
                   ))}
                 </Select>
+                <FormHelperText className={this.state.reqShowTime}>
+                  <span className="red">Required</span>
+                </FormHelperText>
               </FormControl>
               <br />
               <br />
@@ -139,6 +175,9 @@ class BookShow extends Component {
                   value={this.state.tickets !== 0 ? this.state.tickets : ""}
                   onChange={this.ticketsChangeHandler}
                 />
+                <FormHelperText className={this.state.reqTickets}>
+                  <span className="red">Required</span>
+                </FormHelperText>
               </FormControl>
               <br />
               <br />

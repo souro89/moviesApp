@@ -33,3 +33,11 @@
 .red {
   color: red;
 }
+
+.dispNone {
+  display: none;
+}
+
+.dispBlock {
+  display: block;
+}
