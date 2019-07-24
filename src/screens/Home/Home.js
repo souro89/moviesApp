@@ -78,7 +78,6 @@ class Home extends Component {
   };
 
   movieClickHandler = movieId => {
-    console.log("ho");
     ReactDOM.render(
       <Details movieId={movieId} />,
       document.getElementById("root")
